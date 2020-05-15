@@ -1,0 +1,1 @@
+This apartment finder tool is a webscraping application to price match apartments
