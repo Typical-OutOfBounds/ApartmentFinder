@@ -13,4 +13,7 @@ page_html = uClient.content
 bed_val = "bed"+str(bedrooms)
 page_soup = soup(page_html, "html.parser")
 apartments = page_soup.find('div', {"data-tab-content-id":bed_val})
-available = apartments.div.div
+available = apartments.div
+
+for item in available.select('div[data-beds=\"'+str(bedrooms)+'\"]'):
+    print(item)
