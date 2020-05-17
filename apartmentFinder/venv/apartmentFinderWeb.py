@@ -15,5 +15,10 @@ page_soup = soup(page_html, "html.parser")
 apartments = page_soup.find('div', {"data-tab-content-id":bed_val})
 available = apartments.div
 
-for item in available.select('div[data-beds=\"'+str(bedrooms)+'\"]'):
-    print(item)
+rooms = [item for item in available.select('div[data-beds=\"'+str(bedrooms)+'\"]')]
+print(rooms[0]['data-maxrent'])
+to_rent = []
+for item in rooms:
+    to_rent.append({item['data-rentalkey']:item['data-maxrent']})
+
+print(to_rent)
