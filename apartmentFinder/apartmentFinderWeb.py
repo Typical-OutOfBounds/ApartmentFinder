@@ -20,7 +20,8 @@ available = apartments.div
 
 rooms = [item for item in available.select('div[data-beds=\"'+str(bedrooms)+'\"]')]
 print(rooms[0]['data-maxrent'])
-to_rent = []
+
+to_rent = [address]
 for item in rooms:
     to_rent.append({item['data-rentalkey']:[item['data-maxrent'],item['data-model']]})
 

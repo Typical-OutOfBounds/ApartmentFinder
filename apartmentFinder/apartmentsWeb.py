@@ -29,7 +29,7 @@ available = apartments.div.table.tbody
 
 rooms = [item for item in available.select('tr[data-beds=\"'+str(bedrooms)+'\"]')]
 
-to_rent2 = []
+to_rent2 = [address]
 for item in rooms:
     to_rent2.append({item['data-rentalkey']:[item['data-maxrent'], item['data-model']]})
 
