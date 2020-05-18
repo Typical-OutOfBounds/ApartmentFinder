@@ -9,3 +9,13 @@ bedrooms = 1
 
 uClient = requests.get(my_url,headers = headers)
 page_html = uClient.content
+
+page_soup = soup(page_html, "html.parser")
+addressTag = page_soup.find('div', {'class': "propertyAddress"})
+addressTag = addressTag.h2
+print(addressTag)
+address = ""
+for child in addressTag.contents:
+    address += child.string.strip()
+
+print(address)

@@ -12,6 +12,11 @@ page_html = uClient.content
 
 bed_val = "bed"+str(bedrooms)
 page_soup = soup(page_html, "html.parser")
+
+address = page_soup.find('div', {'class': "address"})
+address = address.span.string
+print(address)
+
 apartments = page_soup.find('div', {"data-tab-content-id":bed_val})
 available = apartments.div
 
