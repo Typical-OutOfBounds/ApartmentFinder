@@ -16,6 +16,9 @@ addressTag = addressTag.h2
 print(addressTag)
 address = ""
 for child in addressTag.contents:
-    address += child.string.strip()
-
+    if child.string.strip() != ",":
+        address += " " + child.string.strip()
+    else:
+        address += child.string.strip()
+address = address.strip()
 print(address)
