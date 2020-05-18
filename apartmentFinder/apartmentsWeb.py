@@ -8,10 +8,11 @@ bedrooms = 1
 uClient = requests.get(my_url,headers = headers)
 page_html = uClient.content
 
+bed_val = "bed" + str(bedrooms)
 page_soup = soup(page_html, "html.parser")
 addressTag = page_soup.find('div', {'class': "propertyAddress"})
 addressTag = addressTag.h2
-print(addressTag)
+
 address = ""
 for child in addressTag.contents:
     if child.string.strip() != ",":
@@ -20,3 +21,16 @@ for child in addressTag.contents:
         address += child.string.strip()
 address = address.strip()
 print(address)
+
+apartments = page_soup.find('div', {'data-tab-content-id':bed_val})
+
+available = apartments.div.table.tbody
+
+
+rooms = [item for item in available.select('tr[data-beds=\"'+str(bedrooms)+'\"]')]
+
+to_rent = []
+for item in rooms:
+    to_rent.append({item['data-rentalkey']:[item['data-maxrent'], item['data-model']]})
+
+print(to_rent)
