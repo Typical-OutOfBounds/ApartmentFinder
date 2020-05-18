@@ -1,6 +1,4 @@
-from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
-from bs4 import NavigableString
 import requests
 
 my_url = "https://www.apartmentfinder.com/Michigan/East-Lansing-Apartments/Castle-Pointe-Apartments"
