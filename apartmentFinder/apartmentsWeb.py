@@ -22,13 +22,16 @@ def find_data(beds, url):
             address += child.string.strip()
     address = address.strip()
 
+    name = page_soup.find('h1', {'class':'propertyName'})
+    name = name.string.strip()
+
     apartments = page_soup.find('div', {'data-tab-content-id': bed_val})
 
     available = apartments.div.table.tbody
 
     rooms = [item for item in available.select('tr[data-beds=\"' + str(beds) + '\"]')]
 
-    to_rent2 = [address]
+    to_rent2 = [name, address]
     for item in rooms:
         to_rent2.append({item['data-rentalkey']: [item['data-maxrent'], item['data-model']]})
 

@@ -15,12 +15,15 @@ def find_data(beds, url):
     address = page_soup.find('div', {'class': "address"})
     address = address.span.string
 
+    name = page_soup.find('div', {'class': "name"})
+    name = name.h1.string.strip()
+
     apartments = page_soup.find('div', {"data-tab-content-id": bed_val})
     available = apartments.div
 
     rooms = [item for item in available.select('div[data-beds=\"' + str(beds) + '\"]')]
 
-    to_rent = [address]
+    to_rent = [name, address]
     for item in rooms:
         to_rent.append({item['data-rentalkey']: [item['data-maxrent'], item['data-model']]})
 
