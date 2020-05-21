@@ -8,3 +8,16 @@ uClient =requests.get(url, headers=headers)
 page_html = uClient.content
 
 page_soup = soup(page_html, 'html.parser')
+
+complexes = page_soup.find('ol', {'class': 'layout-row layout-wrap'})
+
+complex_list = [item for item in complexes.select('li')]
+
+links = []
+for comp in complex_list:
+    link = comp.article.find('h2', {'class': "flex-12 ellipses"})
+    links.append(link.a['href'])
+
+print(links)
+
+pages = page_soup.find('div', {'id': 'paging'})
