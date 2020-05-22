@@ -16,7 +16,7 @@ def get_complexes(url):
 
     complexes = page_soup.find('ol', {'class': 'layout-row layout-wrap'})
 
-    complex_list = [item for item in complexes.select('li')]
+    complex_list = complexes.select('li')
 
     for comp in complex_list:
         link = comp.article.find('h2', {'class': "flex-12 ellipses"})
