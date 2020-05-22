@@ -4,6 +4,9 @@ import requests
 my_url = 'https://www.apartmentfinder.com/Michigan/East-Lansing-Apartments'
 links = []
 
+def city_search(city, state):
+    get_complexes('https://www.apartmentfinder.com/' + state + '/' + city+'-Apartments')
+
 def get_complexes(url):
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
     uClient =requests.get(url, headers=headers)
@@ -25,6 +28,6 @@ def get_complexes(url):
     if new_url != "#":
         get_complexes(new_url)
 
-get_complexes(my_url)
 
+city_search('Kalamazoo', 'Michigan')
 print(links)
