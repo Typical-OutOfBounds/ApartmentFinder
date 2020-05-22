@@ -5,7 +5,7 @@ links = []
 page = 1
 
 def city_search(city, state):
-    pass
+    get_complexes('https://www.apartments.com/' + city + '-' + state + '/', page)
 
 def get_complexes(url, page):
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
@@ -58,5 +58,5 @@ def get_complexes(url, page):
 
 
 
-get_complexes('https://www.apartments.com/east-lansing-mi/', page)
+city_search('kalamazoo', 'mi')
 print(links)
