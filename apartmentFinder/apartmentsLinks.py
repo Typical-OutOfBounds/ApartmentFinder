@@ -56,7 +56,3 @@ def get_complexes(url, page):
                 get_complexes("".join(str(item) for item in url_parts), page)
                 return
 
-
-
-city_search('kalamazoo', 'mi')
-print(links)

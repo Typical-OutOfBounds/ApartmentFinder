@@ -32,6 +32,3 @@ def get_complexes(url):
     if new_url != "#":
         get_complexes(new_url)
 
-
-city_search('providence', 'rhode island')
-print(links)
