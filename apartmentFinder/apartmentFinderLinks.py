@@ -5,7 +5,11 @@ my_url = 'https://www.apartmentfinder.com/Michigan/East-Lansing-Apartments'
 links = []
 
 def city_search(city, state):
-    get_complexes('https://www.apartmentfinder.com/' + state + '/' + city+'-Apartments')
+    city = [item.title() for item in city.split()]
+    city = "-".join(city)
+    state = [item.title() for item in state.split()]
+    state = "-".join(state)
+    get_complexes('https://www.apartmentfinder.com/' + state.title() + '/' + city+'-Apartments')
 
 def get_complexes(url):
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
@@ -29,5 +33,5 @@ def get_complexes(url):
         get_complexes(new_url)
 
 
-city_search('Kalamazoo', 'Michigan')
+city_search('providence', 'rhode island')
 print(links)
