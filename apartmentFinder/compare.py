@@ -24,12 +24,15 @@ abbrev = state_dict[state]
 city_search1(city, state)
 city_search2(city, abbrev)
 
+
 for link in links1:
     print(link)
     print(find1(1, link))
 
 for link in links2:
+    print(link)
     print(find2(1, link))
+
 
 print(find1(1,"https://www.apartmentfinder.com/Michigan/East-Lansing-Apartments/Castle-Pointe-Apartments"))
 print(find2(1,"https://www.apartments.com/castle-pointe-east-lansing-mi/ybf975v/"))

@@ -27,13 +27,19 @@ def find_data(beds, url):
 
     apartments = page_soup.find('div', {'data-tab-content-id': bed_val})
 
-    available = apartments.div.table.tbody
-
-    rooms = [item for item in available.select('tr[data-beds=\"' + str(beds) + '\"]')]
-
     to_rent2 = [name, address]
-    for item in rooms:
-        to_rent2.append({item['data-rentalkey']: [item['data-maxrent'], item['data-model']]})
+
+    try:
+        available = apartments.div.table.tbody
+
+        rooms = [item for item in available.select('tr[data-beds=\"' + str(beds) + '\"]')]
+
+
+        for item in rooms:
+            to_rent2.append({item['data-rentalkey']: [item['data-maxrent'], item['data-model']]})
+
+    except AttributeError:
+        to_rent2.append("No rooms available")
 
     return to_rent2
 

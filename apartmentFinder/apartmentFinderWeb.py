@@ -30,7 +30,7 @@ def find_data(beds, url):
         for item in rooms:
             to_rent.append({item['data-rentalkey']: [item['data-maxrent'], item['data-model']]})
 
-    except:
+    except AttributeError:
         to_rent.append("No rooms available")
 
     return to_rent
