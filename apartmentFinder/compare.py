@@ -7,6 +7,7 @@ from apartmentsLinks import links as links2
 
 city = input('Please enter a city name: ')
 state = input('Please enter the state: ')
+beds = input('Please enter a number of beds: ')
 
 state_dict = {'alabama': 'al', 'alaska': 'ak', 'arizona': 'az', "arkansas": 'ar', 'california': 'ca', 'colorado': 'co',
               'connecticut': 'ct', 'delaware': 'de', 'florida': 'fl', 'georgia': 'ga', 'hawaii': 'hi', 'idaho': 'id',
@@ -24,15 +25,15 @@ abbrev = state_dict[state]
 city_search1(city, state)
 city_search2(city, abbrev)
 
+first_web = []
 
 for link in links1:
-    print(link)
-    print(find1(1, link))
+    first_web.append(find1(beds, link))
+
+second_web = []
 
 for link in links2:
-    print(link)
-    print(find2(1, link))
+    second_web.append(find2(beds, link))
 
-
-print(find1(1,"https://www.apartmentfinder.com/Michigan/East-Lansing-Apartments/Castle-Pointe-Apartments"))
-print(find2(1,"https://www.apartments.com/castle-pointe-east-lansing-mi/ybf975v/"))
+print(first_web)
+print(second_web)
