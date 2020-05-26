@@ -1,8 +1,6 @@
 from bs4 import BeautifulSoup as soup
 import requests
 
-my_url = "https://www.apartments.com/castle-pointe-east-lansing-mi/ybf975v/"
-bedrooms = 1
 
 def find_data(beds, url):
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
@@ -42,5 +40,3 @@ def find_data(beds, url):
         to_rent2.append("No rooms available")
 
     return to_rent2
-
-print(find_data(bedrooms, my_url))
