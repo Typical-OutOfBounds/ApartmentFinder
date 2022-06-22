@@ -11,7 +11,7 @@ idna==2.9
 kiwisolver==1.1.0
 matlab==0.1
 matplotlib==3.2.1
-numpy==1.18.2
+numpy==1.22.0
 pipenv==2018.11.26
 pyparsing==2.4.6
 python-dateutil==2.8.1
